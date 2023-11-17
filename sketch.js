@@ -2,17 +2,23 @@ var bg, bgImg
 var bottomGround
 var topGround
 var balloon, balloonImg
+var obstacleTop,obsTop1,obsTop2
+var obstacleBottom,obsBottom1,obsBottom2
 
 function preload(){
 bgImg = loadImage("assets/bg.png")
+balloonImg = loadAnimation("assets/balloon1.png","assets/balloon2.png","assets/balloon3.png")
+obsTop1 =loadImage ("assets"/)
+obsTop2 = loadImage ("assets"/)
 
-balloonImg = loadAnimation("assets/balloon1.png","assets/balloon1.png","assets/balloon1.png")
+obs
+
 }
 
 function setup(){
 
 //Imagen de fondo
-bg = createSprite(165,485,1,1);
+bg = createSprite(1500,700);
 bg.addImage(bgImg);
 bg.scale = 1.3
 
@@ -43,8 +49,24 @@ function draw() {
           }
 
           //Añadir gravedad
-           balloon.velocityY = balloon.velocityX+2;
+           balloon.velocityY = balloon.velocityY+0.5;
    
         drawSprites();
+
+        //llamar a los obstaculos
+        spawObstacleTop();
         
+}
+
+function spawObstacleTop(){
+  //crear cada tantos frames , un sprite obstaculo
+if (Word.frameCount % 80 === 0) {
+
+  obstacleTop = createSprite(1300,50,30,40)
+  obstacleTop.velocityX = -4;
+
+  //Spawmear de forma aleateoria los obtaculos sobre Y
+  obstacleTop.Y = Math.round(random(40,350));
+
+}
 }
