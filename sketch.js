@@ -62,11 +62,23 @@ function spawObstacleTop(){
   //crear cada tantos frames , un sprite obstaculo
 if (Word.frameCount % 80 === 0) {
 
-  obstacleTop = createSprite(1300,50,30,40)
+  obstacleTop = createSprite(1300,50,30,40);
+  obstacleTop scale
   obstacleTop.velocityX = -4;
 
   //Spawmear de forma aleateoria los obtaculos sobre Y
   obstacleTop.Y = Math.round(random(40,350));
+//asignar dif image en de forma aleatoria
+var rand = Math.round(random(1,2))
 
+switch(rand){
+
+  case 1: obstacleTop.addImage(obsTop1);
+          break;
+  case 2: obstacleTop.addImage(obsTop2);
+          break; 
+default:break;
+}
+obstacleTop.lifeTime = 400;
 }
 }
